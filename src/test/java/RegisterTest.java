@@ -10,9 +10,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import pajeObjects.AuthorizationPage;
-import pajeObjects.HomePageStellarBurgers;
-import pajeObjects.RegistrationPage;
+import pageObjects.AuthorizationPage;
+import pageObjects.HomePageStellarBurgers;
+import pageObjects.RegistrationPage;
 
 import static org.junit.Assert.*;
 

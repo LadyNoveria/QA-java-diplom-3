@@ -1,4 +1,4 @@
-package pajeObjects;
+package pageObjects;
 
 import entities.user.UserRequest;
 import io.qameta.allure.Step;
