@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.HomePageStellarBurgers;
 
 import static org.junit.Assert.assertTrue;
+import static service.Constants.BASE_URI;
 
 public class ConstructorTest {
-    private final String URI = "https://stellarburgers.nomoreparties.site/";
     private WebDriver driver;
     private HomePageStellarBurgers homePageStellarBurgers;
 
@@ -22,7 +22,7 @@ public class ConstructorTest {
     @Test
     @DisplayName("Успешный переход в раздел \"Булки\"")
     public void successfulTransitionToSectionBuns() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         homePageStellarBurgers.waitForLoadPageTitleTitle();
         homePageStellarBurgers.clickSaucesButton();
         homePageStellarBurgers.clickBunsButton();
@@ -32,7 +32,7 @@ public class ConstructorTest {
     @Test
     @DisplayName("Успешный переход в раздел \"Соусы\"")
     public void successfulTransitionToSectionSauces() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         homePageStellarBurgers.waitForLoadPageTitleTitle();
         homePageStellarBurgers.clickSaucesButton();
         assertTrue(homePageStellarBurgers.isSauces());
@@ -41,7 +41,7 @@ public class ConstructorTest {
     @Test
     @DisplayName("Успешный переход в раздел \"Начинки\"")
     public void successfulTransitionToToppingsSection() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         homePageStellarBurgers.waitForLoadPageTitleTitle();
         homePageStellarBurgers.clickToppingsButton();
         assertTrue(homePageStellarBurgers.isToppings());

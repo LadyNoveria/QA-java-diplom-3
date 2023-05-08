@@ -1,6 +1,11 @@
 package entities.user;
 
 public class User {
+    private String email;
+    private String name;
+
+    public User() {
+    }
 
     public String getEmail() {
         return email;
@@ -16,11 +21,5 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    private String email;
-    private String name;
-
-    public User() {
     }
 }

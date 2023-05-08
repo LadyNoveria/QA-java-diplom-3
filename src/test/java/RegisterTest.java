@@ -15,9 +15,9 @@ import pageObjects.HomePageStellarBurgers;
 import pageObjects.RegistrationPage;
 
 import static org.junit.Assert.*;
+import static service.Constants.BASE_URI;
 
 public class RegisterTest {
-    private final String URI = "https://stellarburgers.nomoreparties.site/";
     private WebDriver driver;
     private UserClient userClient;
     private UserRequest userRequest;
@@ -39,7 +39,7 @@ public class RegisterTest {
     @Test
     @DisplayName("Успешная регистрация пользователя")
     public void successfulRegisterTest() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         homePageStellarBurgers.clickSignInButton();
         authorizationPage.clickRegisterButton();
         registrationPage.fillingInFields(userRequest);
@@ -52,7 +52,7 @@ public class RegisterTest {
     @Test
     @DisplayName("Неуспешная регистрация пользователя с паролем меньше 6 символов")
     public void errorRegisterTest() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         homePageStellarBurgers.clickSignInButton();
         authorizationPage.clickRegisterButton();
         userRequest.setPassword("12345");

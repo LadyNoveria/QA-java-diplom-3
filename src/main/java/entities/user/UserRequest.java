@@ -2,6 +2,8 @@ package entities.user;
 
 import java.util.Random;
 
+import static service.Constants.ALPHABET;
+
 public class UserRequest {
     private String email;
     private String password;
@@ -18,12 +20,12 @@ public class UserRequest {
     }
 
     private static String getRandomString() {
-        String ALPHABET = new String("abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPRQRSTUVWXYZ".toCharArray());
+        String alphabet = new String(ALPHABET.toCharArray());
         Random random = new Random();
         StringBuilder sb = new StringBuilder(10);
         for (int i = 0; i < 10; i++) {
-            int rndCharAt = random.nextInt(ALPHABET.length());
-            char rndChar = ALPHABET.charAt(rndCharAt);
+            int rndCharAt = random.nextInt(alphabet.length());
+            char rndChar = alphabet.charAt(rndCharAt);
             sb.append(rndChar);
         }
         return sb.toString();

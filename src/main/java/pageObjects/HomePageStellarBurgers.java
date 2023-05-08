@@ -15,9 +15,12 @@ public class HomePageStellarBurgers {
     private final By bunsButton = By.xpath(".//span[text()='Булки']");
     private final By saucesButton = By.xpath(".//span[text()='Соусы']");
     private final By toppingsButton = By.xpath(".//span[text()='Начинки']");
-    private final By bunsSection = By.xpath(".//h2[text()='Булки']");
-    private final By saucesSection = By.xpath(".//h2[text()='Соусы']");
-    private final By toppingsSection = By.xpath(".//h2[text()='Начинки']");
+    private final By bunsSection = By.xpath(
+            ".//div[contains(@class, 'tab_type_current') and contains(span/text(), 'Булки')]");
+    private final By saucesSection = By.xpath(
+            ".//div[contains(@class, 'tab_type_current') and contains(span/text(), 'Соусы')]");
+    private final By toppingsSection = By.xpath(
+            ".//div[contains(@class, 'tab_type_current') and contains(span/text(), 'Начинки')]");
 
     public HomePageStellarBurgers(WebDriver driver) {
         this.driver = driver;
@@ -52,18 +55,19 @@ public class HomePageStellarBurgers {
 
     @Step("Проверка отображения ингредиентов из раздела Булки")
     public boolean isBuns() {
-        return driver.findElement(bunsSection).isDisplayed();
+        return driver.findElement(bunsSection).isEnabled();
     }
 
     @Step("Проверка отображения ингредиентов из раздела Соусы")
     public boolean isSauces() {
-        return driver.findElement(saucesSection).isDisplayed();
+        return driver.findElement(saucesSection).isEnabled();
     }
 
     @Step("Проверка отображения ингредиентов из раздела Начинки")
     public boolean isToppings() {
-        return driver.findElement(toppingsSection).isDisplayed();
+        return driver.findElement(toppingsSection).isEnabled();
     }
+
 
     @Step("Проверка отображения заголовка страницы")
     public boolean isPageTitle() {

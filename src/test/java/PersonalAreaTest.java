@@ -11,10 +11,10 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.*;
 
 import static org.junit.Assert.assertTrue;
+import static service.Constants.BASE_URI;
 
 public class PersonalAreaTest {
 
-    private final String URI = "https://stellarburgers.nomoreparties.site/";
     private WebDriver driver;
     private UserClient userClient;
     private UserRequest userRequest;
@@ -41,7 +41,7 @@ public class PersonalAreaTest {
     @Test
     @DisplayName("Успешный переход в профиль пользователя")
     public void successfulGoToProfileTest() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         headers.clickAccountLoginButton();
         authorizationPage.fillingInFields(userRequest);
         headers.clickAccountLoginButton();
@@ -53,7 +53,7 @@ public class PersonalAreaTest {
     @Test
     @DisplayName("Успешный переход на главную страницу сайта при нажатии на \"Конструктор\" из личного кабинета")
     public void successfulGoToConstructorTest() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         headers.clickAccountLoginButton();
         authorizationPage.fillingInFields(userRequest);
         headers.clickAccountLoginButton();
@@ -65,7 +65,7 @@ public class PersonalAreaTest {
     @Test
     @DisplayName("Успешный переход на главную страницу сайта при нажатии на лого из личного кабинета")
     public void successfulGoToHomePageUsingLogoTest() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         headers.clickAccountLoginButton();
         authorizationPage.fillingInFields(userRequest);
         headers.clickAccountLoginButton();
@@ -77,7 +77,7 @@ public class PersonalAreaTest {
     @Test
     @DisplayName("Успешный выход пользователя из личного кабинета")
     public void successfulLogoutTest() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         headers.clickAccountLoginButton();
         authorizationPage.fillingInFields(userRequest);
         headers.clickAccountLoginButton();

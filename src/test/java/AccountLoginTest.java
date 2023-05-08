@@ -11,9 +11,9 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.*;
 
 import static org.junit.Assert.assertTrue;
+import static service.Constants.BASE_URI;
 
 public class AccountLoginTest {
-    private final String URI = "https://stellarburgers.nomoreparties.site/";
     private WebDriver driver;
     private UserClient userClient;
     private UserRequest userRequest;
@@ -42,7 +42,7 @@ public class AccountLoginTest {
     @Test
     @DisplayName("Успешный логин пользователя через кнопку \"Войти в аккаунт\" на главной странице")
     public void successfulLoginUsingSignInButtonTest() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         homePageStellarBurgers.clickSignInButton();
         authorizationPage.fillingInFields(userRequest);
         assertTrue(homePageStellarBurgers.isCrateOrderButton());
@@ -51,7 +51,7 @@ public class AccountLoginTest {
     @Test
     @DisplayName("Успешный логин пользователя через ссылку \"Личный кабинет\"")
     public void successfulLoginUsingAccountLoginTest() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         headers.clickAccountLoginButton();
         authorizationPage.fillingInFields(userRequest);
         assertTrue(homePageStellarBurgers.isCrateOrderButton());
@@ -60,7 +60,7 @@ public class AccountLoginTest {
     @Test
     @DisplayName("Успешный логин пользователя через форму регистрации")
     public void successfulLoginUsingSignInLinkToRegistrationPageTest() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         homePageStellarBurgers.clickSignInButton();
         authorizationPage.clickRegisterButton();
         registrationPage.clickSignInLink();
@@ -71,7 +71,7 @@ public class AccountLoginTest {
     @Test
     @DisplayName("Успешный логин пользователя через страницу восстановленя пароля")
     public void successfulLoginUsingPasswordRecoveryPageTest() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         homePageStellarBurgers.clickSignInButton();
         authorizationPage.clickRestorePasswordLink();
         passwordRecoveryPage.clickSignInLink();
@@ -82,7 +82,7 @@ public class AccountLoginTest {
     @Test
     @DisplayName("Неверные email или пароль для входа")
     public void errorLoginTest() {
-        driver.get(URI);
+        driver.get(BASE_URI);
         homePageStellarBurgers.clickSignInButton();
         authorizationPage.fillingInFields(UserRequest.userGenerator());
         assertTrue(authorizationPage.isPageTitle());
